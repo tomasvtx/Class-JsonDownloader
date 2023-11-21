@@ -1,49 +1,6 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-
-/// <summary>
-/// The <see cref="MyHttpClientHandler"/> class provides a simple interface for making asynchronous HTTP requests using <see cref="HttpClient"/>.
-/// </summary>
-/// <remarks>
-/// This class simplifies the management of the <see cref="HttpClient"/> instance and provides a method for asynchronously retrieving a response from a given URL.
-/// </remarks>
-public class MyHttpClientHandler : IDisposable
-{
-    /// <summary>
-    /// Gets or sets the underlying <see cref="HttpClient"/> instance used for making HTTP requests.
-    /// </summary>
-    private readonly HttpClient httpClient;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MyHttpClientHandler"/> class.
-    /// </summary>
-    /// <remarks>
-    /// The constructor creates a new instance of <see cref="HttpClient"/> for handling HTTP requests.
-    /// </remarks>
-    public MyHttpClientHandler()
-    {
-        httpClient = new HttpClient();
-    }
-
-    /// <summary>
-    /// Performs an asynchronous HTTP GET request to the specified URL.
-    /// </summary>
-    /// <param name="url">The URL to send the HTTP GET request to.</param>
-    /// <returns>A task representing the asynchronous operation that yields an <see cref="HttpResponseMessage"/>.</returns>
-    /// <remarks>
-    /// This method initiates an asynchronous HTTP GET request using the <see cref="HttpClient"/> instance and returns the
-    /// corresponding <see cref="HttpResponseMessage"/>.
-    /// </remarks>
-    public async Task<HttpResponseMessage> GetAsync(string url)
-    {
-        return await httpClient.GetAsync(url);
-    }
-
-    public void Dispose() => httpClient.Dispose();
-}
-
 /// <summary>
 /// The <see cref="JsonDownloader"/> class is used for downloading and processing JSON data using HTTP requests.
 /// </summary>
@@ -56,7 +13,7 @@ public class JsonDownloader
     /// <summary>
     /// Gets or sets the <see cref="MyHttpClientHandler"/> instance responsible for handling HTTP requests.
     /// </summary>
-    private readonly MyHttpClientHandler httpClientHandler;
+    private readonly HttpClient httpClient;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="JsonDownloader"/> class.
@@ -65,9 +22,9 @@ public class JsonDownloader
     /// <remarks>
     /// This constructor receives an instance of <see cref="MyHttpClientHandler"/> to be used for making HTTP requests.
     /// </remarks>
-    public JsonDownloader(MyHttpClientHandler httpClientHandler)
+    public JsonDownloader(HttpClient httpClient)
     {
-        this.httpClientHandler = httpClientHandler;
+        this.httpClient = httpClient;
     }
 
     /// <summary>
@@ -86,7 +43,7 @@ public class JsonDownloader
 
         try
         {
-            var response = await httpClientHandler.GetAsync(url);
+            var response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
