@@ -1,16 +1,16 @@
 ﻿namespace JsonDownloader.Model
 {
     /// <summary>
-    /// Represents the output of a JSON-related operation, containing deserialized data, 
+    /// Represents the output of a Json-related operation, containing deserialized data, 
     /// a success indicator, and an optional error message.
     /// </summary>
-    /// <typeparam name="JSON">The type of the deserialized JSON data.</typeparam>
-    public class JsonOutput<JSON>
+    /// <typeparam name="Json">The type of the deserialized Json data.</typeparam>
+    public class JsonOutput<Json>
     {
         /// <summary>
-        /// Gets or sets the deserialized JSON data.
+        /// Gets or sets the deserialized Json data.
         /// </summary>
-        public JSON? DataJson { get; set; }
+        public Json? DataJson { get; set; }
 
         /// <summary>
         /// Gets or sets a flag indicating the success of the operation.

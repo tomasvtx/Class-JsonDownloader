@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace JsonDownloader
 {
     /// <summary>
-    /// The <see cref="JsonDownload"/> class provides functionality for downloading and processing JSON data using HTTP requests.
+    /// The <see cref="JsonDownload"/> class provides functionality for downloading and processing Json data using HTTP requests.
     /// </summary>
     public class JsonDownload
 {
@@ -25,9 +25,9 @@ namespace JsonDownloader
     }
 
     /// <summary>
-    /// Asynchronously retrieves JSON data from the specified URL using the configured <see cref="HttpClient"/>.
+    /// Asynchronously retrieves Json data from the specified URL using the configured <see cref="HttpClient"/>.
     /// </summary>
-    /// <typeparam name="JSON">The type to which the JSON data will be deserialized.</typeparam>
+    /// <typeparam name="JSON">The type to which the Json data will be deserialized.</typeparam>
     /// <param name="url">The URL to send the HTTP GET request to.</param>
     /// <returns>
     /// A task representing the asynchronous operation that yields a tuple containing deserialized data, 
@@ -35,7 +35,7 @@ namespace JsonDownloader
     /// </returns>
     /// <remarks>
     /// This method initiates an asynchronous HTTP GET request using the configured <see cref="HttpClient"/>. 
-    /// If the response status is successful (HTTP 2xx), the JSON content is deserialized into the specified type. 
+    /// If the response status is successful (HTTP 2xx), the Json content is deserialized into the specified type. 
     /// If unsuccessful, an error message is generated based on the HTTP response status and reason phrase.
     /// Any network-related issues or failures result in a <see cref="HttpRequestException"/>.
     /// </remarks>
@@ -62,10 +62,10 @@ namespace JsonDownloader
     }
 
     /// <summary>
-    /// Creates a new instance of <see cref="JsonOutput{T}"/> with the specified JSON data, error message, and success indicator.
+    /// Creates a new instance of <see cref="JsonOutput{T}"/> with the specified Json data, error message, and success indicator.
     /// </summary>
-    /// <typeparam name="JSON">The type of the JSON data.</typeparam>
-    /// <param name="dataJson">The deserialized JSON data.</param>
+    /// <typeparam name="JSON">The type of the Json data.</typeparam>
+    /// <param name="dataJson">The deserialized Json data.</param>
     /// <param name="error">The error message, if any.</param>
     /// <param name="isOk">A boolean indicating whether the operation was successful.</param>
     /// <returns>A new instance of <see cref="JsonOutput{T}"/> containing the provided parameters.</returns>
