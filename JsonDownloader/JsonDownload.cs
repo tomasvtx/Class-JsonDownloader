@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 
-namespace JsonDownloader.Model
+namespace JsonDownloader
 {
     /// <summary>
     /// The <see cref="JsonDownload"/> class provides functionality for downloading and processing JSON data using HTTP requests.
