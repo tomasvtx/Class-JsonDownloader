@@ -2,3 +2,4 @@
 	21.11.2023 - Make initial version on .Net 5
 	21.11.2023 - Renamed HttpClientHandler to MyHttpClientHandler
 	21.11.2023 - Removed MyHttpClientHandler and Blazor compatibility
+	22.11.2023 - refactoring
